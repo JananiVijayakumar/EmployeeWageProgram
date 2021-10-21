@@ -7,9 +7,11 @@ public class EmployeeWageProgram {
     }
 }
 class Attendance{
-    static final int IS_PRESENT = 1;
-    static final int WAGE_PER_HOUR = 20;
-    static final int IS_FULL_TIME = 8;
+    int IS_PRESENT = 1;
+    int IS_ABSENT = 0;
+    int WAGE_PER_HOUR = 20;
+    int IS_FULL_TIME = 8;
+    int IS_PART_TIME = 4;
     int DailyWage = 0;
 
     int EmployeePresent(int a) {
@@ -24,8 +26,12 @@ class Attendance{
             DailyWage = WAGE_PER_HOUR * IS_FULL_TIME;
 
         }
-        else {
+        else if (EmpCheck == IS_ABSENT){
             System.out.println("Employee is Absent");
+            DailyWage = DailyWage;
+        }
+        else {
+            System.out.println("Employee is part timer");
             DailyWage = DailyWage;
         }
         System.out.println("Daily Wage : " + DailyWage);
