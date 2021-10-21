@@ -3,24 +3,31 @@ import java.util.*;
 public class EmployeeWageProgram {
     public static void main(String[] args) {
         Attendance attendance = new Attendance();
-        attendance.EmployeeCheck();
+        attendance.DailyWageCheck();
     }
 }
 class Attendance{
-    int IS_PRESENT = 1;
+    static final int IS_PRESENT = 1;
+    static final int WAGE_PER_HOUR = 20;
+    static final int IS_FULL_TIME = 8;
+    int DailyWage = 0;
 
     int EmployeePresent(int a) {
         Random r = new Random();
         int EmpCheck = r.nextInt(a);
         return EmpCheck;
     }
-    void EmployeeCheck() {
-        System.out.println("Welcome to Employee wage computational program");
+    void DailyWageCheck() {
         int EmpCheck = EmployeePresent(2);
         if (EmpCheck == IS_PRESENT) {
             System.out.println("Employee is present");
-        } else
+            DailyWage = WAGE_PER_HOUR * IS_FULL_TIME;
+
+        }
+        else {
             System.out.println("Employee is Absent");
+            DailyWage = DailyWage;
+        }
+        System.out.println("Daily Wage : " + DailyWage);
     }
 }
-
